@@ -79,6 +79,22 @@ exports['Parse simple lambda'] = function (test) {
     test.equal(v.toString(), '\\x.x');
 };
 
+exports['Parse lambda enclosed in parenthesis'] = function (test) {
+    var v = sl.parse('(\\x.x)');
+    
+    test.ok(v);
+    test.equal(typeof v, 'object');
+    test.equal(v.toString(), '\\x.x');
+};
+
+exports['Parse lambda enclosed in parenthesis and argument'] = function (test) {
+    var v = sl.parse('(\\x.x)y');
+    
+    test.ok(v);
+    test.equal(typeof v, 'object');
+    test.equal(v.toString(), '(\\x.x)y');
+};
+
 exports['Throw exception when invalid argument'] = function (test) {
     test.throws(
         function() { sl.parse("\\."); },
