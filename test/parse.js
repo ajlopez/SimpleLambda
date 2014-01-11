@@ -71,5 +71,28 @@ exports['Throw exception when close parenthesis'] = function (test) {
     );
 };
 
+exports['Parse simple lambda'] = function (test) {
+    var v = sl.parse('\\x.x');
+    
+    test.ok(v);
+    test.equal(typeof v, 'object');
+    test.equal(v.toString(), '\\x.x');
+};
+
+exports['Throw exception when invalid argument'] = function (test) {
+    test.throws(
+        function() { sl.parse("\\."); },
+        "Invalid argument name"
+    );
+};
+
+exports['Throw exception when missing point in lambda'] = function (test) {
+    test.throws(
+        function() { sl.parse("\\xy"); },
+        "Expected '.'"
+    );
+};
+
+
 
 

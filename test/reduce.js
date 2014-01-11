@@ -2,7 +2,7 @@
 var sl = require('..');
 
 exports['Reduce variable'] = function (test) {
-    var term = sl.createVariable('x');    
+    var term = sl.parse('x');    
     test.equal(sl.reduce(term), null);
 }
 
@@ -12,6 +12,6 @@ exports['Reduce lambda'] = function (test) {
 }
 
 exports['Reduce simple apply'] = function (test) {
-    var term = sl.createApply(sl.createVariable('x'), sl.createVariable('y'));
+    var term = sl.parse('xy');
     test.equal(sl.reduce(term), null);
 }
