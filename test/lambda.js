@@ -32,4 +32,13 @@ exports["Don't substitute not found variable"] = function (test) {
     test.equal(result.toString(), "\\x.y");
 };
 
+exports["Don't substitute bound variable by a not variable term"] = function (test) {
+    var l = sl.createLambda('x', sl.createVariable('y'));
+    
+    var result = l.substitute('x', sl.createLambda('y', sl.createVariable('z')));
+    test.ok(result);
+    test.equal(result.toString(), "\\x.y");
+};
+
+
 
