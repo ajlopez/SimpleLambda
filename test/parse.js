@@ -33,6 +33,22 @@ exports['Parse three variables'] = function (test) {
     test.equal(v.toString(), 'xyz');
 };
 
+exports['Parse one and two variables'] = function (test) {
+    var v = sl.parse('x(yz)');
+    
+    test.ok(v);
+    test.equal(typeof v, 'object');
+    test.equal(v.toString(), 'x(yz)');
+};
+
+exports['Parse two and one variables'] = function (test) {
+    var v = sl.parse('(xy)z');
+    
+    test.ok(v);
+    test.equal(typeof v, 'object');
+    test.equal(v.toString(), 'xyz');
+};
+
 exports['Parse three variables skipping spaces'] = function (test) {
     var v = sl.parse('x y z');
     

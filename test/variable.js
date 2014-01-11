@@ -35,3 +35,11 @@ exports['Fail to create a variable with two letters'] = function (test) {
     );
 }
 
+exports['Fail to create a variable with not letter character'] = function (test) {
+    test.throws(
+        function () { sl.createVariable('(') },
+        "Invalid variable name"
+    );
+}
+
+
