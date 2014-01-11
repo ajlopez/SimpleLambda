@@ -24,6 +24,22 @@ exports['Substitute not bound variable'] = function (test) {
     test.equal(result.toString(), "\\x.z");
 };
 
+exports['Substitute not bound variable and replace bound variable that is free in new term'] = function (test) {
+    var l = sl.createLambda('x', sl.createVariable('y'));
+    
+    var result = l.substitute('y', sl.createVariable('x'));
+    test.ok(result);
+    test.equal(result.toString(), "\\z.x");
+};
+
+exports['Substitute and change argument by fresh variable'] = function (test) {
+    var l = sl.createLambda('x', sl.createVariable('y'));
+    
+    var result = l.substitute('y', sl.parse('abcx'));
+    test.ok(result);
+    test.equal(result.toString(), "\\d.abcx");
+};
+
 exports["Don't substitute not found variable"] = function (test) {
     var l = sl.createLambda('x', sl.createVariable('y'));
     
