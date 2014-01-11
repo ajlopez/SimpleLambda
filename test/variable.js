@@ -28,3 +28,10 @@ exports["Don't substitute variable"] = function (test) {
     test.strictEqual(result, v);
 }
 
+exports['Fail to create a variable with two letters'] = function (test) {
+    test.throws(
+        function () { sl.createVariable('xy') },
+        "Invalid variable name"
+    );
+}
+
