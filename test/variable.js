@@ -18,7 +18,7 @@ exports['Substitute variable'] = function (test) {
     test.strictEqual(result, v2);
 }
 
-exports['Not substitute variable'] = function (test) {
+exports["Don't substitute variable"] = function (test) {
     var v = sl.createVariable('x');
     var v2 = sl.createVariable('z');
     var result = v.substitute('y', v2);
