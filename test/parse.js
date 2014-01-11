@@ -57,3 +57,19 @@ exports['Parse three variables skipping spaces'] = function (test) {
     test.equal(v.toString(), 'xyz');
 };
 
+exports['Throw exception when unclosed term'] = function (test) {
+    test.throws(
+        function() { sl.parse("(xy"); },
+        "Unclosed term"
+    );
+};
+
+exports['Throw exception when close parenthesis'] = function (test) {
+    test.throws(
+        function() { sl.parse("x)yz"); },
+        "Unexpected ')'"
+    );
+};
+
+
+
