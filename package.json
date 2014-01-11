@@ -1,0 +1,17 @@
+{ "name": "simplelambda"
+, "description": "Lambda calculus implemented as interpreter in JavaScript"
+, "keywords": [ "lambda", "calculus", "javascript" ]
+, "version": "0.0.1alpha"
+, "author": "Angel 'Java' Lopez <webmaster@ajlopez.com> (http://www.ajlopez.com)"
+, "repository": { "type": "git", "url": "git://github.com/ajlopez/SimpleLambda.git" }
+, "main": "./lib/simplelambda.js"
+, "engines": { "node": ">= 0.6.0 && < 0.11.0" }
+, "scripts": {
+    "test": "simpleunit test"
+  }
+, "dependencies": {
+  }
+, "devDependencies": {
+    "simpleunit": "0.0.2"
+  }
+}
