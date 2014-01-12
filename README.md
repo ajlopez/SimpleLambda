@@ -1,6 +1,6 @@
 # SimpleLambda
 
-Lambda calculus implemented as interpreter in JavaScript. WIP.
+Lambda calculus implemented as interpreter in JavaScript.
 
 ## Installation
 
