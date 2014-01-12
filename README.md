@@ -48,7 +48,7 @@ npm test
 
 ## Samples
 
-- [Hello](tree/master/samples/simple) Simple reduce examples.
+- [Simple Reduces](tree/master/samples/simple) Simple reduce examples.
 
 ## Versions
 
