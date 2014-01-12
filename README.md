@@ -48,7 +48,7 @@ npm test
 
 ## Samples
 
-- [Simple Reduces](tree/master/samples/simple) Simple reduce examples.
+- [Simple Reduces](https://github.com/ajlopez/SimpleLambda/tree/master/samples/simple) Simple reduce examples.
 
 ## Versions
 
