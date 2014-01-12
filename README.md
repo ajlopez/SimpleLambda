@@ -16,9 +16,26 @@ npm install simplelambda
 Reference in your program:
 
 ```js
-var simpletbeams = require('simplelambda');
+var sl = require('simplelambda');
 ```
-[TBD]
+
+Parse terms:
+
+```js
+term = sl.parse('x');       // variable
+term = sl.parse('xy');      // sequence
+term = sl.parse('\\x.xy');  // lambda
+term = sl.parse('(\\x.x)(\\w.w)');
+```
+
+Reduce term:
+
+```js
+while (term) {
+    console.log(term.toString());
+    term = sl.reduce(term);     // returns null if no reduce can be applied
+}
+```
 
 ## Development
 
@@ -31,7 +48,7 @@ npm test
 
 ## Samples
 
-TBD
+[Hello](tree/master/samples/simple) Simple reduce examples.
 
 ## License
 

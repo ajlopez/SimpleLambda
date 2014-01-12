@@ -1,0 +1,1 @@
+var sl = require('../..');function reduce(text) {    var term = sl.parse(text);        while (term) {        console.log(term.toString());        term = sl.reduce(term);    }        console.log();}reduce('x');reduce('\\x.x');reduce('xy');reduce('(\\x.x)y');reduce('(\\x.x)(\\w.w)');reduce('(\\x.y)((\\z.zz)(\\w.w))');

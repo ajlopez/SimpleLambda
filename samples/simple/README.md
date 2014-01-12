@@ -1,0 +1,1 @@
+# Simple ReduceExecute:```node run```It reduce some terms. Expected output:```x\x.xxy(\x.x)yy(\x.x)(\w.w)\w.w(\x.y)((\z.zz)(\w.w))(\x.y)((\w.w)(\w.w))(\x.y)(\w.w)y```
