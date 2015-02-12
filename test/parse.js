@@ -79,6 +79,14 @@ exports['Parse simple lambda'] = function (test) {
     test.equal(v.toString(), '\\x.x');
 };
 
+exports['Parse simple lambda with ->'] = function (test) {
+  var v = sl.parse('\\x->x');
+
+  test.ok(v);
+  test.equal(typeof v, 'object');
+  test.equal(v.toString(), '\\x.x');
+};
+
 exports['Parse lambda enclosed in parenthesis'] = function (test) {
     var v = sl.parse('(\\x.x)');
     
@@ -105,10 +113,20 @@ exports['Throw exception when invalid argument'] = function (test) {
 exports['Throw exception when missing point in lambda'] = function (test) {
     test.throws(
         function() { sl.parse("\\xy"); },
-        "Expected '.'"
+        "Expected"
     );
 };
 
+exports['Parse a term, print it, parse again, print results in the same expression'] = function (test) {
+  var v = sl.parse('((\\x.x)y(\\x.\\y.(\\z.zxy)))');
+
+  test.ok(v);
+  test.equal(typeof v, 'object');
+
+  var newV = sl.parse(v.toString());
+
+  test.equal(v.toString(), newV.toString());
+};
 
 
 

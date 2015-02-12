@@ -3,7 +3,7 @@
 , "keywords": [ "lambda", "calculus", "javascript" ]
 , "version": "0.0.1"
 , "author": "Angel 'Java' Lopez <webmaster@ajlopez.com> (http://www.ajlopez.com)"
-, "repository": { "type": "git", "url": "git://github.com/ajlopez/SimpleLambda.git" }
+, "repository": { "type": "git", "url": "git://github.com/winitzki/SimpleLambda.git" }
 , "main": "./lib/simplelambda.js"
 , "engines": { "node": ">= 0.6.0 && < 0.11.0" }
 , "scripts": {
