@@ -13,7 +13,7 @@ exports['Print lambda with two free variables'] = function (test) {
 
   test.ok(v);
   test.equal(typeof v, 'object');
-  test.equal(v.toHTML(), 'λ<i>x</i>→<i>x</i><i><b>y</b></i><i><b>z</b></i>');
+  test.equal(v.toHTML(), 'λ<i>x</i>→<i>x</i>&nbsp;<i><b>y</b></i>&nbsp;<i><b>z</b></i>');
 };
 
 exports['Print variables with subscripts'] = function (test) {
@@ -21,5 +21,5 @@ exports['Print variables with subscripts'] = function (test) {
 
   test.ok(v);
   test.equal(typeof v, 'object');
-  test.equal(v.toHTML(), 'λ<i>x</i>→<i>x</i><i><b>y</b></i><sub>23</sub><i><b>z</b></i><sub>3</sub>');
+  test.equal(v.toHTML(), 'λ<i>x</i>→<i>x</i>&nbsp;<i><b>y</b></i><sub>23</sub>&nbsp;<i><b>z</b></i><sub>3</sub>');
 };
