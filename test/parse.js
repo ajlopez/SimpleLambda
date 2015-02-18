@@ -1,4 +1,3 @@
-
 var sl = require('..');
 
 exports['Parse variable'] = function (test) {

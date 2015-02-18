@@ -1,4 +1,3 @@
-
 var sl = require('..');
 
 exports['Create variable'] = function (test) {

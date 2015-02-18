@@ -45,16 +45,6 @@ exports['Two lambdas are equal when they are equivalent by alpha-conversion invo
   test.equal(sl.isEqual(l1, l2), true);
 };
 
-exports['Two lambdas are equal when they are equivalent by alpha-conversion involving deeper nesting'] = function (test) {
-  var l1 = sl.parse('\\x.\\y.x(\\z.\\t.txyz)');
-  var l2 = sl.parse('\\a.\\b.a(\\c.\\d.dabc)');
-
-  test.ok(l1);
-  test.ok(l2);
-  test.equal(sl.isEqual(l1, l2), true);
-};
-
-
 exports['Two lambdas are not equal when they are not equivalent'] = function (test) {
   var l1 = sl.createLambda('x', sl.createVariable('y'));
   var l2 = sl.createLambda('y', sl.createVariable('y'));
@@ -73,4 +63,11 @@ exports['Two applications are equal when they are identical'] = function (test) 
   test.equal(sl.isEqual(l1, l2), true);
 };
 
+exports['Two lambdas are equal when they are equivalent by alpha-conversion involving deep nesting'] = function (test) {
+  var l1 = sl.parse('\\x.\\y.x(\\z.\\t.txyz)(\\y.xy)');
+  var l2 = sl.parse('\\a.\\b.a(\\c.\\d.dabc)(\\q.aq)');
 
+  test.ok(l1);
+  test.ok(l2);
+  test.equal(sl.isEqual(l1, l2), true);
+};

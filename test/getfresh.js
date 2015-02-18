@@ -1,4 +1,3 @@
-
 var sl = require('..');
 
 exports['Get free variables from variable'] = function (test) {

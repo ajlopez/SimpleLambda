@@ -1,4 +1,3 @@
-
 var sl = require('..');
 
 exports['Variable has itself as free'] = function (test) {

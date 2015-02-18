@@ -1,4 +1,3 @@
-
 var sl = require('..');
 
 exports['Reduce variable'] = function (test) {
@@ -32,6 +31,30 @@ exports['Reduce complex term'] = function (test) {
     term = sl.reduce(term);
     test.ok(term);
     test.equal(term.toString(), 'y');
+};
+
+exports['Reduce more terms 1'] = function (test) {
+    var term = sl.parse('\\x.(\\y.x)x');
+    test.ok(term);
+    term = sl.reduce(term);
+    test.ok(term);
+    test.equal(term.toString(), '\\x.x');
+};
+
+exports['Reduce more terms 2'] = function (test) {
+    var term = sl.parse('\\y.(\\x.x)x');
+    test.ok(term);
+    term = sl.reduce(term);
+    test.ok(term);
+    test.equal(term.toString(), '\\y.x');
+};
+
+exports['Reduce more terms 3'] = function (test) {
+    var term = sl.parse('(\\x.\\y.x)(xy)');
+    test.ok(term);
+    term = sl.reduce(term);
+    test.ok(term);
+    test.equal(term.toString(), '\\z.xy');
 };
 
 exports['Reduce the body of lambda'] = function (test) {

@@ -1,4 +1,3 @@
-
 var sl = require('..');
 
 exports['Create apply'] = function (test) {
