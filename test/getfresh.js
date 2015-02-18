@@ -12,7 +12,7 @@ exports['Get free variables from apply'] = function (test) {
 
 exports['Get free variables from lambda'] = function (test) {
     test.equal(sl.parse('\\x.x').getFreeVars().toString(), [].toString());
-    test.equal(sl.parse('\\x.zy').getFreeVars().toString(), ['z', 'y'].toString());
+    test.equal(sl.parse('\\x.z(\\z.\\y.zxy)y').getFreeVars().toString(), ['z', 'y'].toString());
     test.equal(sl.parse('\\a.ab').getFreeVars().toString(), ['b']);
 };
 

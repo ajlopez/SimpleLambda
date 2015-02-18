@@ -24,12 +24,20 @@ exports['Substitute not bound variable'] = function (test) {
     test.equal(result.toString(), "\\x.z");
 };
 
-exports['Substitute not bound variable and replace bound variable that is free in new term'] = function (test) {
+exports['Substitute non-bound variable and replace bound variable that is free in new term'] = function (test) {
     var l = sl.createLambda('x', sl.createVariable('y'));
     
     var result = l.substitute('y', sl.createVariable('x'));
     test.ok(result);
     test.equal(result.toString(), "\\z.x");
+};
+
+exports['Alpha-conversion does not confusingly use the names of free variables'] = function (test) {
+  var l = sl.parse('(\\x.\\x.x)p');
+
+  var result = l.reduce();
+  test.ok(result);
+  test.equal(result.toString(), "\\x.x");
 };
 
 exports['Alpha-conversion works also for the variable q'] = function (test) {
@@ -41,7 +49,7 @@ exports['Alpha-conversion works also for the variable q'] = function (test) {
 };
 
 exports['Substitute and change argument by fresh variable'] = function (test) {
-    var l = sl.createLambda('x', sl.createVariable('y'));
+    var l = sl.parse('\\x.y');
     
     var result = l.substitute('y', sl.parse('abcx'));
     test.ok(result);
@@ -56,7 +64,7 @@ exports["Don't substitute not found variable"] = function (test) {
     test.equal(result.toString(), "\\x.y");
 };
 
-exports["Don't substitute bound variable by a not variable term"] = function (test) {
+exports["Don't substitute bound variable by a non-variable term"] = function (test) {
     var l = sl.createLambda('x', sl.createVariable('y'));
     
     var result = l.substitute('x', sl.createLambda('y', sl.createVariable('z')));
