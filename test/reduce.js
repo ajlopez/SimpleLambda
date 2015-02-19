@@ -66,3 +66,8 @@ exports['Do not reduce the body of lambda if given keepLambdaBody=true'] = funct
     var term = sl.reduce(sl.parse('\\x.(\\z.z)y'), { keepLambdaBody: true });
     test.equal(term, null);
 };
+exports['Reduce lazily if the option is given'] = function (test) {
+    var term = sl.reduce(sl.parse('(\\x.y)((\\z.zzzzz)t)'), { lazyEvaluation: true });
+    test.ok(term);
+    test.equal(term.toString(), 'y');
+};
