@@ -24,6 +24,31 @@ exports['Parse two variables'] = function (test) {
     test.equal(v.toString(), 'xy');
 };
 
+exports['Parse capitalized variable skipping spaces'] = function (test) {
+    var v = sl.parse(' Capitalized');
+
+    test.ok(v);
+    test.equal(typeof v, 'object');
+    test.equal(v.toString(), 'Capitalized');
+};
+
+exports['Parse three variables, two capitalized'] = function (test) {
+    var v = sl.parse('xYgrecZed');
+
+    test.ok(v);
+    test.equal(typeof v, 'object');
+    test.equal(v.toString(), 'xYgrecZed');
+};
+
+exports['Parse three variables, two capitalized, ignoring spaces'] = function (test) {
+    var v = sl.parse('xYgrec Zed ');
+
+    test.ok(v);
+    test.equal(typeof v, 'object');
+    test.equal(v.toString(), 'xYgrecZed');
+};
+
+
 exports['Parse three variables'] = function (test) {
     var v = sl.parse('xyz');
     
