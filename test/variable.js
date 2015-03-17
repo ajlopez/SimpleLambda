@@ -41,7 +41,7 @@ exports['Create a variable with one letter and digits'] = function (test) {
   test.equal(v.toString(), 'x23');
 }
 
-exports['Fail to create a variable with not letter character'] = function (test) {
+exports['Fail to create a variable with non-letter character'] = function (test) {
     test.throws(
         function () { sl.createVariable('(') },
         "Invalid variable name"

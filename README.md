@@ -60,6 +60,10 @@ npm test
 
 - 0.0.4: Option to keep bodies of lambda functions from reduction. More conservative (thus less confusing) alpha-conversions.
 
+- 0.0.5: Support capitalized multi-letter variables (e.g. Case ) with obligatory separator
+
+- 0.0.6: Support empty separator for lambdas (\x y or \x \y z).
+
 ## License
 
 MIT
