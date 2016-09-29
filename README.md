@@ -40,7 +40,7 @@ while (term) {
 ## Development
 
 ```
-git clone git://github.com/ajlopez/SimpleLambda.git
+git clone git://github.com/winitzki/SimpleLambda.git
 cd SimpleLambda
 npm install
 npm test
@@ -48,7 +48,7 @@ npm test
 
 ## Samples
 
-- [Simple Reduces](https://github.com/ajlopez/SimpleLambda/tree/master/samples/simple) Simple reduce examples.
+- [Simple Reduces](https://github.com/winitzki/SimpleLambda/tree/master/samples/simple) Simple reduce examples.
 
 ## Versions
 
