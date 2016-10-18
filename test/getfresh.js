@@ -1,27 +1,17 @@
-
 var sl = require('..');
 
-exports['Get fresh variable from variable'] = function (test) {
-    test.equal(sl.parse('x').getFresh(), 'y');
-    test.equal(sl.parse('y').getFresh(), 'z');
-    test.equal(sl.parse('z').getFresh(), 'w');
-    test.equal(sl.parse('w').getFresh(), 'v');
-    test.equal(sl.parse('v').getFresh(), 'u');
-    test.equal(sl.parse('u').getFresh(), 't');
-    test.equal(sl.parse('t').getFresh(), 's');
-    test.equal(sl.parse('a').getFresh(), 'b');
+exports['Get free variables from variable'] = function (test) {
+    test.equal(sl.parse('x').getFreeVars().toString(), ['x'].toString());
 };
 
-exports['Get fresh variable from apply'] = function (test) {
-    test.equal(sl.parse('ab').getFresh(), 'c');
-    test.equal(sl.parse('yx').getFresh(), 'z');
-    test.equal(sl.parse('xy').getFresh(), 'z');
-    test.equal(sl.parse('cba').getFresh(), 'd');
+exports['Get free variables from apply'] = function (test) {
+    test.equal(sl.parse('ab').getFreeVars().toString(), ['a','b'].toString());
+    test.equal(sl.parse('cba').getFreeVars().toString(), ['c', 'b', 'a'].toString());
 };
 
-exports['Get fresh variable from lambda'] = function (test) {
-    test.equal(sl.parse('\\x.x').getFresh(), 'y');
-    test.equal(sl.parse('\\x.zy').getFresh(), 'w');
-    test.equal(sl.parse('\\a.bcd').getFresh(), 'e');
+exports['Get free variables from lambda'] = function (test) {
+    test.equal(sl.parse('\\x.x').getFreeVars().toString(), [].toString());
+    test.equal(sl.parse('\\x.z(\\z.\\y.zxy)y').getFreeVars().toString(), ['z', 'y'].toString());
+    test.equal(sl.parse('\\a.ab').getFreeVars().toString(), ['b']);
 };
 
