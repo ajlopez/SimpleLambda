@@ -1,8 +1,8 @@
 
-var sl = require('..');
+const sl = require('..');
 
 exports['Parse variable'] = function (test) {
-    var v = sl.parse('x');
+    const v = sl.parse('x');
     
     test.ok(v);
     test.equal(typeof v, 'object');
@@ -10,7 +10,7 @@ exports['Parse variable'] = function (test) {
 };
 
 exports['Parse variable skipping spaces'] = function (test) {
-    var v = sl.parse('  x   ');
+    const v = sl.parse('  x   ');
     
     test.ok(v);
     test.equal(typeof v, 'object');
@@ -18,7 +18,7 @@ exports['Parse variable skipping spaces'] = function (test) {
 };
 
 exports['Parse two variables'] = function (test) {
-    var v = sl.parse('xy');
+    const v = sl.parse('xy');
     
     test.ok(v);
     test.equal(typeof v, 'object');
@@ -26,7 +26,7 @@ exports['Parse two variables'] = function (test) {
 };
 
 exports['Parse three variables'] = function (test) {
-    var v = sl.parse('xyz');
+    const v = sl.parse('xyz');
     
     test.ok(v);
     test.equal(typeof v, 'object');
@@ -34,7 +34,7 @@ exports['Parse three variables'] = function (test) {
 };
 
 exports['Parse one and two variables'] = function (test) {
-    var v = sl.parse('x(yz)');
+    const v = sl.parse('x(yz)');
     
     test.ok(v);
     test.equal(typeof v, 'object');
@@ -42,7 +42,7 @@ exports['Parse one and two variables'] = function (test) {
 };
 
 exports['Parse two and one variables'] = function (test) {
-    var v = sl.parse('(xy)z');
+    const v = sl.parse('(xy)z');
     
     test.ok(v);
     test.equal(typeof v, 'object');
@@ -50,7 +50,7 @@ exports['Parse two and one variables'] = function (test) {
 };
 
 exports['Parse three variables skipping spaces'] = function (test) {
-    var v = sl.parse('x y z');
+    const v = sl.parse('x y z');
     
     test.ok(v);
     test.equal(typeof v, 'object');
@@ -72,7 +72,7 @@ exports['Throw exception when close parenthesis'] = function (test) {
 };
 
 exports['Parse simple lambda'] = function (test) {
-    var v = sl.parse('\\x.x');
+    const v = sl.parse('\\x.x');
     
     test.ok(v);
     test.equal(typeof v, 'object');
@@ -80,7 +80,7 @@ exports['Parse simple lambda'] = function (test) {
 };
 
 exports['Parse lambda enclosed in parenthesis'] = function (test) {
-    var v = sl.parse('(\\x.x)');
+    const v = sl.parse('(\\x.x)');
     
     test.ok(v);
     test.equal(typeof v, 'object');
@@ -88,7 +88,7 @@ exports['Parse lambda enclosed in parenthesis'] = function (test) {
 };
 
 exports['Parse lambda enclosed in parenthesis and argument'] = function (test) {
-    var v = sl.parse('(\\x.x)y');
+    const v = sl.parse('(\\x.x)y');
     
     test.ok(v);
     test.equal(typeof v, 'object');
@@ -108,7 +108,5 @@ exports['Throw exception when missing point in lambda'] = function (test) {
         "Expected '.'"
     );
 };
-
-
 
 

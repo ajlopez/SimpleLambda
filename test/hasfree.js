@@ -1,5 +1,5 @@
 
-var sl = require('..');
+const sl = require('..');
 
 exports['Variable has itself as free'] = function (test) {
     test.ok(sl.parse('x').hasFree('x'));

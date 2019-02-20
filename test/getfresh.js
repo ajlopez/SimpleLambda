@@ -1,5 +1,5 @@
 
-var sl = require('..');
+const sl = require('..');
 
 exports['Get fresh variable from variable'] = function (test) {
     test.equal(sl.parse('x').getFresh(), 'y');
