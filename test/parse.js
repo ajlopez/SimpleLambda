@@ -60,14 +60,14 @@ exports['Parse three variables skipping spaces'] = function (test) {
 exports['Throw exception when unclosed term'] = function (test) {
     test.throws(
         function() { sl.parse("(xy"); },
-        "Unclosed term"
+        { message: "Unclosed term" }
     );
 };
 
 exports['Throw exception when close parenthesis'] = function (test) {
     test.throws(
         function() { sl.parse("x)yz"); },
-        "Unexpected ')'"
+        { message: "Unexpected ')'" }
     );
 };
 
@@ -98,14 +98,14 @@ exports['Parse lambda enclosed in parenthesis and argument'] = function (test) {
 exports['Throw exception when invalid argument'] = function (test) {
     test.throws(
         function() { sl.parse("\\."); },
-        "Invalid argument name"
+        { message: "Invalid argument name" }
     );
 };
 
 exports['Throw exception when missing point in lambda'] = function (test) {
     test.throws(
         function() { sl.parse("\\xy"); },
-        "Expected '.'"
+        { message: "Expected '.'" }
     );
 };
 
