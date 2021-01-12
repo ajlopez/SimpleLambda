@@ -27,17 +27,7 @@ exports['Reduce apply with left lambda'] = function (test) {
 }
 
 exports['Reduce complex term'] = function (test) {
-    var term = sl.reduce(sl.parse('(\\x.y)((\\z.zz)(\\w.w))'));
-
-    test.ok(term);
-    test.equal(term.toString(), '(\\x.y)((\\w.w)(\\w.w))');
-
-    term = sl.reduce(term);
-
-    test.ok(term);
-    test.equal(term.toString(), '(\\x.y)(\\w.w)');
-
-    term = sl.reduce(term);
+    const term = sl.reduce(sl.parse('(\\x.y)((\\z.zz)(\\w.w))'));
 
     test.ok(term);
     test.equal(term.toString(), 'y');
